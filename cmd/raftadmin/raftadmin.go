@@ -24,7 +24,7 @@ import (
 )
 
 func main() {
-	if err := do(); err != nil {
+	if err := Do(); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -71,7 +71,7 @@ func messageFromDescriptor(d protoreflect.MessageDescriptor) protoreflect.Messag
 	panic(fmt.Errorf("unknown type %q; please add it to protoTypes", d.FullName()))
 }
 
-func do() error {
+func Do() error {
 	ctx := context.Background()
 	methods := pb.File_raftadmin_proto.Services().ByName("RaftAdmin").Methods()
 	leader := flag.Bool("leader", false, "Whether to dial to the leader (requires https://github.com/Jille/raft-grpc-leader-rpc)")
